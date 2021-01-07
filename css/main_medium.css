@@ -1,0 +1,98 @@
+/* COMMON */
+.summary__description{
+  font-size: 24px;
+  font-weight: 300;
+  color: #767676;
+  line-height: 1.5;
+}
+
+/* HEADER */
+header.section .inner {
+    max-width: none;
+    height: auto;
+    padding: 0 20px;
+  }
+ 
+  header .menu-group{
+    display: block;
+  }
+  header .logo{
+    padding: 12px 0;
+  }
+  header .main-menu{
+    display: block;
+    margin-bottom: 10px;
+  }
+  header .main-menu li{
+    border-top: 1px solid #e5e5e5;
+  }
+  header .main-menu li a{
+    padding: 16px 0;
+  }
+  header .toggle{
+    display: none;
+  }
+  header .toggle.on{
+    display: block;
+  }
+  #toggle-btn{
+    display: block;
+  }
+
+  .nav-bar {
+    height: 40vh;
+  }
+  .nav-bar a {
+    font-size: 18px;
+  }
+  /* VISUAL */
+  .section--visual .inner{
+    display: block;
+    max-width: none;
+    padding: 80px 20px;
+  }
+  .section--visual .summary{
+    text-align: center;
+    margin-right: 0;
+    margin-bottom: 50px;
+  }
+  .section--visual .result--image{
+    margin: 0 auto;
+  }
+  #btn-form{
+    width: auto;
+    margin: 0 auto;
+    margin-left: 320px;
+    display: flex;
+  }
+  #btn-form [type="submit"]{
+    width: 100%;
+    height: 50px;
+    padding: 0 10px;
+    font-size: 20px;
+    justify-content: center;
+  }
+  #btn-form li {
+    margin-left: 18px;
+    margin-right: 10px;
+  }
+  #canvas{
+    margin-left: 320px;
+  }
+  /* FEATURE */
+  .section--feature .summary{
+    padding: 66px 20px 0 20px;
+  }
+
+  .section--feature .summary figcaption{
+      font-size: 16px;
+  }
+  .section--feature .tiles li{
+    width: 50%;
+  }
+  .section--feature .tiles li:nth-child(2){
+    border-right: none;
+  }
+  .section--feature .tiles li img{
+    padding: 14px 30% 24px;
+  }

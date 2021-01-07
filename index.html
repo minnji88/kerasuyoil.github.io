@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <title>Pixel Art</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scaleable=no, maximum-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+     <!-- 아이콘 -->
+    <link rel="icon" href="">
+    <link rel="apple-touch-icon" href="">  
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" media="(max-width: 1024px)" href="css/main_medium.css">
+    <link rel="stylesheet" media="(max-width: 768px)" href="css/main_small.css">
+
+     <!-- GAN 모델 추가-->
+     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+    
+     <style>
+        canvas {
+            border: 1px solid #000;
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+ <div class="body__container">
+
+  <!-- HEADER-->
+    <header class="section">
+        <div class="inner clearfix" >
+            <div class="menu-group float--left">
+                <div class="logo">
+                    <a href="#">PixelArt</a>
+                </div>
+                <ul class="main-menu toggle ">
+                    <li><a href="#">Create</a></li>
+                    <li><a href="#">Description</a></li>
+                </ul>
+            </div>
+            <div class = "nav-bar" id="navBar">
+                <a href="#createSummary">Create</a>
+                <a href="#descriptionSummary">Description</a>
+            </div>
+            <div id="toggle-btn" onclick="openNav()">Header Menu Toggle Button</div>
+            <div id="close-btn" onclick="closeNav()">Header Menu Toggle Button</div>
+            <script>
+                
+                var on = false;
+
+                  function openNav() {
+                 
+                    console.log("wkw");
+                    document.getElementById("toggle-btn").style.display = "none";
+                    document.getElementById("close-btn").style.display = "block";
+                }
+
+                function closeNav() {
+                    console.log("wkw");
+                    document.getElementById("toggle-btn").style.display = "block";
+                    document.getElementById("close-btn").style.display = "none";
+                }
+
+                $( document ).ready( function() {
+                    $( '#toggle-btn' ).click( function() {
+                        $( '#navBar' ).animate( {
+                            width: '20%'
+                        } );
+                    } );
+                } );
+
+                $( document ).ready( function() {
+                    $( '#close-btn' ).click( function() {
+                        $( '#navBar' ).animate( {
+                            width: '0px'
+                        } );
+                    } );
+                } );
+                
+            </script>
+           
+        </div>
+    </header>
+
+  <!-- VISUAL-->
+    <section class="section section--visual">
+        <div class="inner">
+            <div class="summary">
+                <div class="summary__title" id="createSummary">Pixel&nbsp;Art</div>
+                <div class="summary__description">
+                    Our Model can create Person,&nbsp;Background&nbsp;and&nbsp;Animal&nbsp;picture into&nbsp;Pixel&nbsp;Arts.
+                </div> 
+            </div>
+
+            <div class="result--image">
+                <canvas id="canvas" width="28" height="28"></canvas>
+            </div>
+ 
+            <div id="btn-form" action="">
+                <li><button type="submit" class="btn" id="clear">Create</button></li>
+                <li><button type="submit" class="btn btn--primary" id="download">Download</button></li>
+            </div>
+
+        </div>
+    </section>
+
+ <!-- FEATURE -->
+ <section class="section section--feature">
+    <div class="summary" id="descriptionSummary">
+        <h2 class="summary__title">
+            PixelArt
+        </h2>
+        <p class="summary__description">
+            적대적 생성 신경망(GAN)을 사용하여<br/>
+            픽셀 아트 이미지를 생성하는 모델입니다<br/><br/>
+            GAN은 생성자와 구분자가 서로 경쟁하며 발전시키는 것으로<br/>
+            이를 테면 생성자 = 위조지폐범, 구분자 = 경찰이라면<br/>
+            위조지폐범은 경찰을 속이기 위해 점점 지폐 위조 제조 기술을 발전시키고,<br/>
+            경찰은 위조지폐범을 잡기 위해 점점 위폐를 찾는 기술을 발전시킵니다<br/>
+            시간이 흐르면 위조지폐범의 위폐 제조 기술은 완벽에 가깝게 발전하겠죠?<br/><br/>
+            위폐를 픽셀 아트로 바꿔 생각하시면 쉽게 이해 하실 수 있습니다<br/><br/>
+        </p>
+        <figure>
+            <img src="../img/example.gif" style="margin-top:20px;">
+            <figcaption class="summary__description"><i>(NVIDIA)</i></figcaption>    
+        </figure>
+    </div>
+
+
+    <div class= "tiles">
+            <div class="inner">
+            <ul>
+                <li>
+                    <img src="img/Man_song.png" alt="song">
+                    <h3>송성곤</h3>
+                    <p>호텔관광경영학과 | ST연계전공</p>
+                    <p>데이터 분석의 마스터로서 제일 싫어하는 벌레는 대충, 열정이 가득한 유노성곤</p>
+                </li>
+                <li>
+                    <img src="img/Woman_lee.png" alt="lee">
+                    <h3>이주희</h3>
+                    <p>경영학과</p>
+                    <p>SAI의 대표 운영진으로서 데이콘 상금을 사냥하기 위한 도전을 계속하는 중</p>
+                </li>
+                <li>
+                    <img src="img/Woman_kim.png" alt="kim">
+                    <h3>김민지</h3>
+                    <p>소프트웨어학과</p>
+                    <p>~~~~~~~~~~~~~~</p>
+                </li>
+                <li>
+                    <img src="img/Woman_lim.png" alt="lim">
+                    <h3>임가영</h3>
+                    <p>컴퓨터공학과</p>
+                    <p>웹 개발에 관심이 많고 롤의 그랜드마스터를 꿈꾸는 꿈나무, 현재는 게임을 개발 중</p>
+                </li>
+                <li>
+                    <img src="img/Man_choi.png" alt="choi">
+                    <h3>최우혁</h3>
+                    <p>생명시스템학부</p>
+                    <p>SAI의 대표 든든한 운영진으로서 OKR 실천율이 80%가 되는 유일무이한 개발자</p>
+                </li>
+            </ul>
+            </div>
+    </div> 
+    </selection>
+
+ </div>
+</body>
+<script>
+    // 모델로드 
+    // bin 파일도 있어야함
+    // tensorflowjs를 사용중에 더 자세히 알고싶다면 
+    // https://js.tensorflow.org/api/0.6.1/#tf.Tensor.print
+    function loadModel(){
+        let model = tf.loadLayersModel('model.json');    
+        return model;
+        }
+        //----- Define image generation function -----
+        function genImage(model){
+        // Debug statement
+        console.log("Inside genImage");
+        
+        // Create noise to generate
+         let noise = tf.randomNormal([1, 32]);
+
+        // Create the image and clean up memory
+        let img_final = tf.tidy(() => {
+            // Predict
+            let img = model.predict(noise);
+        
+            console.log(img);
+            // Resize and scale the image
+            img = img.as3D(32,32,3);
+            img = img.clipByValue(0,1).mul(tf.scalar(255)).cast('int32');
+            
+            return img;
+        });
+        
+        // Get the canvas for displaying
+        let canvas = document.getElementsByTagName("canvas")[0]
+
+        // Display the image
+        tf.browser.toPixels(img_final, canvas).then(function(){
+            // Debug statement
+            console.log("Displayed");
+            // Clean up the tenosr
+            // tf.dispose(img_final);
+            // tf.dispose(noise);
+            // Debug statement
+            console.log(tf.memory());
+        });
+
+        // canvas를 clear하고 새로운 이미지를 생성합니다.
+        $('#clear').click(function () {
+            canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+            genImage(model);
+        })
+
+        // canvas이미지를 다운로드합니다.
+        $('#download').click(function () {
+        var pixel_img = canvas.toDataURL("image");
+        var image = new Image();
+        image.src = pixel_img;
+
+        var aTag = document.createElement('a');
+        aTag.download = 'pixel_img.png';
+        aTag.href = pixel_img;
+        aTag.click();
+        })
+
+    }
+
+    // Load the model
+    var model = null
+    promise = loadModel();
+    promise.then(function(value){
+    // Debug statement
+    console.log("Model loaded");
+    // Assign the model variable
+    model = value;
+    // Generate a new Morty image
+    genImage(model);
+
+});
+
+
+</script>
+</html>
