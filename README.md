@@ -1,6 +1,6 @@
 # kerasuyoil.github.io
 
-[Kerasuyoil](https://kerasuyoil.github.io/.)
+[kerasuyoil.github.io](https://kerasuyoil.github.io/.)
 
 적대적 생성 신경망(GAN)을 사용하여 픽셀 아트 이미지를 생성하는 모델입니다
 
