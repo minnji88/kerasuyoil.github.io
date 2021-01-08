@@ -15,8 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" media="(max-width: 1024px)" href="css/main_medium.css">
-    <link rel="stylesheet" media="(max-width: 768px)" href="css/main_small.css">
+    <link rel="stylesheet" media="(max-width: 1242px)" href="css/main_medium.css">
+    <link rel="stylesheet" media="(max-width: 750px)" href="css/main_small.css">
 
      <!-- GAN 모델 추가-->
      <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -183,14 +183,14 @@
     function loadModel(){
         let model = tf.loadLayersModel('model.json');    
         return model;
-        }
-        //----- Define image generation function -----
-        function genImage(model){
+    }
+    //----- Define image generation function -----
+    function genImage(model){
         // Debug statement
         console.log("Inside genImage");
         
         // Create noise to generate
-         let noise = tf.randomNormal([1, 32]);
+         let noise = tf.randomNormal([1, 128]);
 
         // Create the image and clean up memory
         let img_final = tf.tidy(() => {
@@ -199,7 +199,7 @@
         
             console.log(img);
             // Resize and scale the image
-            img = img.as3D(32,32,3);
+            img = img.as3D(64,64,3);
             img = img.clipByValue(0,1).mul(tf.scalar(255)).cast('int32');
             
             return img;
@@ -217,27 +217,27 @@
             // tf.dispose(noise);
             // Debug statement
             console.log(tf.memory());
-        });
-
-        // canvas를 clear하고 새로운 이미지를 생성합니다.
-        $('#clear').click(function () {
-            canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
-            genImage(model);
-        })
-
-        // canvas이미지를 다운로드합니다.
-        $('#download').click(function () {
-        var pixel_img = canvas.toDataURL("image");
-        var image = new Image();
-        image.src = pixel_img;
-
-        var aTag = document.createElement('a');
-        aTag.download = 'pixel_img.png';
-        aTag.href = pixel_img;
-        aTag.click();
-        })
+        });       
 
     }
+
+    // canvas를 clear하고 새로운 이미지를 생성합니다.
+    $('#clear').click(function () {
+            canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+            genImage(model);
+    })
+
+    // canvas이미지를 다운로드합니다.
+    $('#download').click(function () {
+    var pixel_img = canvas.toDataURL("image");
+    var image = new Image();
+    image.src = pixel_img;
+
+    var aTag = document.createElement('a');
+    aTag.download = 'pixel_img.png';
+    aTag.href = pixel_img;
+    aTag.click();
+    })
 
     // Load the model
     var model = null
