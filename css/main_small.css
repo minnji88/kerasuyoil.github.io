@@ -3,7 +3,7 @@
     font-size: 34px !important;
 }
 .summary__description{
-    font-size: 22px !important;
+    font-size: 18px !important;
 }
 /* HEADER */
 .nav-bar {
@@ -14,12 +14,12 @@
 }
 /* VISUAL */
 #canvas{
-    margin-left: 100px;
+    margin-left: 20px;
 }
 #btn-form{
     width: auto;
     margin: 0 auto;
-    margin-left: 210px;
+    margin-left: 30px;
     display: flex;
     font-size: 12px;
 }
@@ -28,6 +28,9 @@
     margin-right: 10px;
 }
 /* FEATURE */
+.section--feature .p{
+    font-size: 10px !important;
+}
 .section--feature .summary figcaption{
     font-size: 12px;
 }
