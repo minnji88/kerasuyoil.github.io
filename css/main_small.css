@@ -17,19 +17,24 @@
     margin-left: 20px;
 }
 #btn-form{
-    width: auto;
+    width: 100%;
     margin: 0 auto;
-    margin-left: 30px;
     display: flex;
-    font-size: 12px;
+    font-size: 10px;
 }
 #btn-form li {
-    margin-left: 15px;
     margin-right: 10px;
 }
+#slider_range{
+    margin-top: 30px;
+    margin-left: 8px;
+  }
+.section--visual .slider_bar{
+
+}
 /* FEATURE */
-.section--feature .p{
-    font-size: 10px !important;
+.section--feature img{
+    width: 350px;
 }
 .section--feature .summary figcaption{
     font-size: 12px;

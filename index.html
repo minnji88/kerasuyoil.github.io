@@ -7,8 +7,8 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
      <!-- 아이콘 -->
-    <link rel="icon" href="">
-    <link rel="apple-touch-icon" href="">  
+    <link rel="icon" href="./img/logo.png">
+    <link rel="apple-touch-icon" href="./img/logo.png">  
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
 
@@ -39,7 +39,7 @@
         <div class="inner clearfix" >
             <div class="menu-group float--left">
                 <div class="logo">
-                    <a href="#">PixelArt</a>
+                    <a href="#">Charecter Resource Creator</a>
                 </div>
                 <ul class="main-menu toggle ">
                     <li><a href="#">Create</a></li>
@@ -47,8 +47,9 @@
                 </ul>
             </div>
             <div class = "nav-bar" id="navBar">
-                <a href="#createSummary">Create</a>
-                <a href="#descriptionSummary">Description</a>
+                <div class="nav-bar-up"></div>
+                <div class="nav-sel"><a href="#createSummary">Create</a></div>
+                <div class="nav-sel"><a href="#descriptionSummary">Description</a></div>
             </div>
             <div id="toggle-btn" onclick="openNav()">Header Menu Toggle Button</div>
             <div id="close-btn" onclick="closeNav()">Header Menu Toggle Button</div>
@@ -72,7 +73,7 @@
                 $( document ).ready( function() {
                     $( '#toggle-btn' ).click( function() {
                         $( '#navBar' ).animate( {
-                            width: '20%'
+                            width: '10%'
                         } );
                     } );
                 } );
@@ -103,9 +104,12 @@
             <div class="result--image">
                 <canvas id="canvas" width="28" height="28"></canvas>
             </div>
- 
+            <!-- <div class = "slider_bar">
+                <!-- <input name="slider_range" id="slider_range" type="range" min="0" max="1" step="0.1" value="0.5" data-highlight="true"> -->
+            <!-- </div> -->
             <div id="btn-form" action="">
-                <li><button type="submit" class="btn" id="clear">Create</button></li>
+                <!-- <li><button type="submit" class="btn" id="clear">Create</button></li> -->
+                <li><input name="slider_range" id="slider_range" type="range" min="0" max="1" step="0.1" value="0.5" data-highlight="true"></li>
                 <li><button type="submit" class="btn btn--primary" id="download">Download</button></li>
             </div>
 
@@ -221,6 +225,13 @@
 
     }
 
+    //슬라이드 바 값대로 이미지 생성하는 함수
+    document.getElementById("slider_range").oninput = function(){
+        var value = parseFloat(document.getElementById("slider_range").value);
+        console.log(value);
+        genImage(model, value);
+
+    }
     // canvas를 clear하고 새로운 이미지를 생성합니다.
     $('#clear').click(function () {
             canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);

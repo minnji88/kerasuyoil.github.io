@@ -62,7 +62,7 @@ header.section .inner {
   #btn-form{
     width: auto;
     margin: 0 auto;
-    margin-left: 320px;
+    margin-left: 260px;
     display: flex;
   }
   #btn-form [type="submit"]{
@@ -73,7 +73,6 @@ header.section .inner {
     justify-content: center;
   }
   #btn-form li {
-    margin-left: 18px;
     margin-right: 10px;
   }
   #canvas{
