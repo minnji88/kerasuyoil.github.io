@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-     <title>Pixel Art</title>
+     <title>Resource Creator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scaleable=no, maximum-scale=1">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
      <!-- 아이콘 -->
     <link rel="icon" href="./img/logo.png">
-    <link rel="apple-touch-icon" href="./img/logo.png">  
+    <link rel="apple-touch-icon" href="./img/logo.png>  
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
 
@@ -39,7 +39,7 @@
         <div class="inner clearfix" >
             <div class="menu-group float--left">
                 <div class="logo">
-                    <a href="#">Charecter Resource Creator</a>
+                    <a href="#">Resource&nbsp;Creator</a>
                 </div>
                 <ul class="main-menu toggle ">
                     <li><a href="#">Create</a></li>
@@ -73,7 +73,7 @@
                 $( document ).ready( function() {
                     $( '#toggle-btn' ).click( function() {
                         $( '#navBar' ).animate( {
-                            width: '10%'
+                            width: '20%'
                         } );
                     } );
                 } );
@@ -95,9 +95,9 @@
     <section class="section section--visual">
         <div class="inner">
             <div class="summary">
-                <div class="summary__title" id="createSummary">Pixel&nbsp;Art</div>
-                <div class="summary__description"></div>
-                    Our Model can&nbsp;create Person,&nbsp;Background&nbsp;and&nbsp;Animal&nbsp;picture into&nbsp;Pixel&nbsp;Arts.
+                <div class="summary__title" id="createSummary">Resource&nbsp;Creator</div>
+                <div class="summary__description">
+                    Our Model can create Person,&nbsp;Background&nbsp;and&nbsp;Animal&nbsp;picture into&nbsp;Pixel&nbsp;Arts.
                 </div> 
             </div>
 
@@ -105,11 +105,11 @@
                 <canvas id="canvas" width="28" height="28"></canvas>
             </div>
             <!-- <div class = "slider_bar">
-                <!-- <input name="slider_range" id="slider_range" type="range" min="0" max="1" step="0.1" value="0.5" data-highlight="true"> -->
-            <!-- </div> -->
+                <input name="slider_range" id="slider_range" type="range" min="-2" max="2" step="0.1" value="0.1" data-highlight="true">
+            </div> -->
             <div id="btn-form" action="">
                 <!-- <li><button type="submit" class="btn" id="clear">Create</button></li> -->
-                <li><input name="slider_range" id="slider_range" type="range" min="0" max="1" step="0.1" value="0.5" data-highlight="true"></li>
+                <input name="slider_range" id="slider_range" type="range" min="-2" max="2" step="0.1" value="0.1" data-highlight="true">
                 <li><button type="submit" class="btn btn--primary" id="download">Download</button></li>
             </div>
 
@@ -120,17 +120,17 @@
  <section class="section section--feature">
     <div class="summary" id="descriptionSummary">
         <h2 class="summary__title">
-            PixelArt
+            Resource&nbsp;Creator
         </h2>
         <p class="summary__description">
             적대적 생성 신경망(GAN)을 사용하여<br/>
-            픽셀 아트 이미지를 생성하는 모델입니다.<br/><br/>
-
-            만약 생성자 = 위조지폐범, 구분자 = 경찰이면<br/>
-            위조지폐범은 경찰을 속이기 위해 점점 위조 지폐 기술을 발전시키고,<br/><br/>
-            경찰은 범인을 잡기 위해 점점 위폐 찾는 기술을 발전시킵니다.<br/>
-            시간이 흐르면 범인의 위조 기술은 완벽에 가깝게 발전하겠죠?<br/><br/>
-            이처럼 GAN은 생성자와 구분자가 경쟁하면서 발전하는 신경망입니다.<br/><br/>
+            픽셀 아트 이미지를 생성하는 모델입니다<br/><br/>
+            GAN은 생성자와 구분자가 서로 경쟁하며 발전시키는 것으로<br/>
+            이를 테면 생성자 = 위조지폐범, 구분자 = 경찰이라면<br/>
+            위조지폐범은 경찰을 속이기 위해 점점 지폐 위조 제조 기술을 발전시키고,<br/><br/>
+            경찰은 위조지폐범을 잡기 위해 점점 위폐를 찾는 기술을 발전시킵니다<br/>
+            시간이 흐르면 위조지폐범의 위폐 제조 기술은 완벽에 가깝게 발전하겠죠?<br/><br/>
+            위폐를 픽셀 아트로 바꿔 생각하시면 쉽게 이해 하실 수 있습니다<br/><br/>
         </p>
         <figure>
             <img src="../img/example.gif" style="margin-top:20px;">
@@ -230,7 +230,6 @@
         var value = parseFloat(document.getElementById("slider_range").value);
         console.log(value);
         genImage(model, value);
-
     }
     // canvas를 clear하고 새로운 이미지를 생성합니다.
     $('#clear').click(function () {
