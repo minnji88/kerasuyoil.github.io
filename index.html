@@ -193,12 +193,12 @@
         return model;
     }
     //----- Define image generation function -----
-    function genImage(model){
+    function genImage(model, noiseFloat){
         // Debug statement
         console.log("Inside genImage");
         
         // Create noise to generate
-         let noise = tf.randomNormal([1, 128]);
+         let noise = tf.fill([1,128],noiseFloat);
 
         // Create the image and clean up memory
         let img_final = tf.tidy(() => {
@@ -220,9 +220,6 @@
         tf.browser.toPixels(img_final, canvas).then(function(){
             // Debug statement
             console.log("Displayed");
-            // Clean up the tenosr
-            // tf.dispose(img_final);
-            // tf.dispose(noise);
             // Debug statement
             console.log(tf.memory());
         });       
