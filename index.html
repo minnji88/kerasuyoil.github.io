@@ -113,7 +113,7 @@
             </div> -->
             <div id="btn-form" action="">
                 <!-- <li><button type="submit" class="btn" id="clear">Create</button></li> -->
-                <input name="slider_range" id="slider_range" type="range" min="-2" max="2" step="0.1" value="0.1" data-highlight="true">
+                <input name="slider_range" id="slider_range" type="range" min="-2" max="2" step="0.1" value="0" data-highlight="true">
                 <li><button type="submit" class="btn btn--primary" id="download">Download</button></li>
             </div>
 
@@ -262,7 +262,7 @@
     // Assign the model variable
     model = value;
     // Generate a new Morty image
-    genImage(model);
+    genImage(model,0);
 
 });
 
