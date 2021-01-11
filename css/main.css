@@ -249,6 +249,10 @@ header .logo a{
     margin: 0 auto;
     text-align: center;
 }
+.section--feature img{
+  width: 1000px;
+  margin-left: -80px
+}
 .section--feature .summary figcaption{
   font-size: 18px;
 }
@@ -256,6 +260,7 @@ header .logo a{
   margin-top: 80px;
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
+  
 }
 .section--feature .tiles .inner{
   max-width: 1200px;
@@ -279,6 +284,7 @@ header .logo a{
   max-width: 100%;
   padding: 14px 10% 24px;
   box-sizing: border-box;
+  margin: 0 auto;
 }
 .section--feature .tiles li h3{
   font-size: 18px;
